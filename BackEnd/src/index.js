@@ -1,9 +1,13 @@
-const express=require("express")
-const app= express()
-const cors= require("cors")
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
-app.use(cors())
- 
+const express = require("express")
+const app = express()
+const cors = require("cors")
 
-module.exports=app
+const authRouter = require("./controllers/auth")
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(cors())
+
+app.use("/auth", authRouter)
+
+module.exports = app
