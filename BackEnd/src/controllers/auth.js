@@ -8,7 +8,7 @@ const authRouter = Router();
 
 authRouter.post("/signup",Single("profile"), async (req, res) => {
     try {
-        const profile=req.file.path 
+        let profile=req?.profile?.file
         if(!profile){
             profile="http://www.defineinternational.com/wp-content/uploads/2014/06/dummy-profile.png"
         }
@@ -22,9 +22,9 @@ authRouter.post("/signup",Single("profile"), async (req, res) => {
         const data = UserModel({ email, name, "password": hash, profile });
         data.save();
 
-        return res.send({ message: "user created successfully" });
+        return res.status(201).send({ message: "user created successfully" });
     } catch (e) {
-        return res.send({ message: "error" });
+        return res.status(401).send({ message: e.message });
     }
 })
 
@@ -46,9 +46,9 @@ authRouter.post("/signin", async (req, res) => {
 
         const token = jwt.sign(user, "TITAN");
 
-        return res.send({ message: "user signed in successfully", token });
+        return res.status(200).send({ message: "user signed in successfully", token });
     } catch (e) {
-        return res.send({ message: "error" });
+        return res.status(401).send({ message: e.message});
     }
 })
 
