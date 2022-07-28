@@ -7,10 +7,10 @@ import {Box, Img, Button} from "@chakra-ui/react"
 const ProductDetail = () => {
     const[count,setCount]=useState(0)
     const {id}=useParams()
-    //console.log(id)
+   
   const navigate=useNavigate()
-    const ProductData = useSelector((state) =>state.data);
-  //console.log(ProductData)
+    const ProductData = useSelector((state) =>state.AppReducer.data);
+   
     const dispatch=useDispatch()
     
     const[currProduct,setcurrProduct]=useState({})
@@ -27,13 +27,12 @@ const ProductDetail = () => {
   }
     },[ProductData,id])
   
-  //console.log(ProductData)
+ 
     console.log(currProduct)
   
   
     const handleBag=(id)=>{
-    //   navigate(`/Cart/${id}`)
-    //   console.log(id)
+      
     }
     return (
       <Box width="80%" margin="auto" key={currProduct.id} display="grid" gridTemplateColumns="repeat(2,1fr)">

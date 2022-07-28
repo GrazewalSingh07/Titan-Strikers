@@ -6,10 +6,10 @@ import {Box, Img, Text} from "@chakra-ui/react"
 
 import {Link} from "react-router-dom"
 const Courses = () => {
-    const data=useSelector((state)=>state.data)
+    const data=useSelector((state)=>state.AppReducer.data)
     const dispatch=useDispatch()
     useEffect(()=>{
-dispatch(getdata())
+        dispatch(getdata())
     },[])
 
     console.log(data)
