@@ -18,6 +18,7 @@ const verifyToken=(token)=>{
 
 }
 const authenticate= async (req, res, next)=>{
+   
     if(!req.headers.authorization){
         return res.status(400).send({message1:"Authorization token not found or incorrect"})
         
@@ -37,9 +38,9 @@ const authenticate= async (req, res, next)=>{
 
         return res.status(400).send({message3:"Authorization token not found or incorrect"})
     }
-    // console.log(decoded)
+    
     req.user=decoded
-     
+    
     return next()
 }
 module.exports=authenticate

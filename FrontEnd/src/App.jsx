@@ -12,6 +12,9 @@ import {Routes,Route} from "react-router-dom"
 import { Cart } from "./Pages/Cart"
 import { Signin } from "./Pages/Signin"
 import { Signup } from "./Pages/Signup"
+import RequiredAuth from "./components/ReuiredAuth"
+import { Mycourse } from "./Pages/MyCourse"
+import { PaymentPage } from "./Pages/PaymenPgae"
  
  
  
@@ -25,13 +28,13 @@ function App() {
     <Navbar/>
     <Routes>
       <Route path="/" element={<Home/>}/>
-     
+     <Route path="/payment/:sum" element={<PaymentPage/>}></Route>
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/courses" element={<Courses/>}/>
       <Route path="/courses/:id" element={<ProductDetail/>}/>
-      
+      <Route path="/purchase-courses" element={<RequiredAuth><Mycourse/></RequiredAuth>} ></Route>
         <Route path="/signin" element={<Signin/>}/>
-        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/cart" element={<RequiredAuth><Cart/></RequiredAuth>}/>
        </Routes>
  
     </>
