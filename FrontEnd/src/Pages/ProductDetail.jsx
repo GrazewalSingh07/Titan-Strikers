@@ -6,7 +6,7 @@ import { getdata } from '../Redux/App/action'
 import {Box, Img, Button} from "@chakra-ui/react"
 const ProductDetail = () => {
     const[count,setCount]=useState(0)
-    const {_id}=useParams()
+    const {id}=useParams()
     //console.log(id)
   const navigate=useNavigate()
     const ProductData = useSelector((state) =>state.data);
@@ -21,11 +21,11 @@ const ProductDetail = () => {
 
   
     useEffect(()=>{
-  if(_id){
-    const temp=ProductData.find((ele)=>ele._id===Number(_id))
+  if(id){
+    const temp=ProductData.find((ele)=>ele._id===(id))
     temp && setcurrProduct(temp)
   }
-    },[ProductData,_id])
+    },[ProductData,id])
   
   //console.log(ProductData)
     console.log(currProduct)
