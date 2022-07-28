@@ -28,6 +28,7 @@ export const reducer=(state=initState,{type,payload})=>{
                 registerFailed:false,
             }
         }
+        
         default:{
             return state
         }
