@@ -1,11 +1,14 @@
  
-
+import {Routes,Route} from "react-router-dom"
 function App() {
  
 
-  return (
-    <Box>
-  
+  return ( <Box>
+
+       <Routes>
+        <Route path="/" ></Route>
+
+       </Routes>
 
     </Box>
   )
