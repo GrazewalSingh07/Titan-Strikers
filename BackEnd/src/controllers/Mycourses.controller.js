@@ -7,10 +7,11 @@ const router= express.Router()
 
  
 router.get("/",authenticate,async(req,res)=>{
+   
     try {
-      let PurchasedCourses=PurchasedCourses.find({_id:req.body.id}).lean().exec()
+      let myPurchasedCourses=PurchasedCourses.find({_id:req.user._id}).lean().exec()
         
-        return res.status(200).send(PurchasedCourses)
+        return res.status(200).send(myPurchasedCourses)
     } catch (error) {
         return res.status(401).send(error.message)
     }

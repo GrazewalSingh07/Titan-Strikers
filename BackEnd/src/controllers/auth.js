@@ -32,14 +32,14 @@ authRouter.post("/signin", async (req, res) => {
 
         const hash = crypto.pbkdf2Sync(password, "TITAN", 10, 30, "sha256").toString("hex");
 
-        const user = await UserModel.findOne({ email, "password": hash });
+        const user = await UserModel.findOne({ email:req.body.email}).lean().exec();
 
         if (user === null) {
             return res.send({ message: "user not found" });
 
         }
 
-        const token = jwt.sign({ email, "name": user.name }, "TITAN");
+        const token = jwt.sign(user, "TITAN");
 
         return res.send({ message: "user signed in successfully", token });
     } catch (e) {

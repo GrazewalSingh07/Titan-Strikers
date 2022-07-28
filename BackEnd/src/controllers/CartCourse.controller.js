@@ -17,10 +17,12 @@ router.get("/",authenticate,async(req,res)=>{
 })
 router.post("/",authenticate,async(req,res)=>{
     try {
-        console.log(req.body)
-    //   let cartcourses=CartCourse.find({_id:req.body.id}).lean().exec()
+        // console.log(req.user)
+    //   let cartcourses=CartCourse.find({_id:req.user._id}).lean().exec()
         await CartCourse.create({
-            courseId:req.body.id
+           
+            userId:req.user._id,
+             courseId:req.body.courseId
         })
         return res.status(200).send("added to cart")
     } catch (error) {
