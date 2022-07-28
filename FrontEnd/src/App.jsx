@@ -7,8 +7,8 @@ import Courses from "./Pages/Courses"
 import ProductDetail from "./Pages/ProductDetail"
  
 
+
 function App() {
- 
 
   return (
     <>
@@ -21,6 +21,7 @@ function App() {
       <Route path="/courses/:id" element={<ProductDetail/>}/>
     </Routes>
     </>
+
   )
 }
 
