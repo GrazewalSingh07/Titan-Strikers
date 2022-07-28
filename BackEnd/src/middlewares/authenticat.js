@@ -1,18 +1,16 @@
 
 
-// require("dotenv").config();
+ 
 const jwt=require("jsonwebtoken");
  
  
 const verifyToken=(token)=>{
     return new Promise((resolve,reject)=>{
-         var decodedResult=jwt.verify(token ,"SECRET_CODE",function(error, decoded){
+         var decodedResult=jwt.verify(token ,"TITAN",function(error, decoded){
             if(error){
                 return reject(error)
             }
-            //decoded will the orginal value of the user
-            // basically this middleware return us the user detail
-         
+          
 
             return resolve(decoded)
         });
@@ -29,8 +27,7 @@ const authenticate= async (req, res, next)=>{
         return res.status(400).send({messageeeeeee:"Authorization token not found or incorrect"})
     }
     const token=req.headers.authorization.split(" ")[1]
-    // const token=req.headers.authorization
-    // console.log(token)
+   
    var  decoded;
 
     try {
@@ -40,9 +37,9 @@ const authenticate= async (req, res, next)=>{
 
         return res.status(400).send({message3:"Authorization token not found or incorrect"})
     }
-    
-    req.user=decoded.user
-    // console.log(req.user)
+    // console.log(decoded)
+    req.user=decoded
+     
     return next()
 }
 module.exports=authenticate
