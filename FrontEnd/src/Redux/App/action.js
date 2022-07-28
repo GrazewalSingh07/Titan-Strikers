@@ -14,7 +14,7 @@ export const getdatasuccess=(payload)=>{
 }
 export const getdatafailure=()=>{
     return {
-        type:types.getdatafailure,
+        type:types.GET_DATA_FAILURE,
 
     }
 }
