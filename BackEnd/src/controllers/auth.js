@@ -2,12 +2,17 @@ const { Router } = require("express");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const UserModel = require("../models/user.model");
+const Single = require("../middlewares/uploads");
 
 const authRouter = Router();
 
-authRouter.post("/signup", async (req, res) => {
+authRouter.post("/signup",Single("profile"), async (req, res) => {
     try {
-        const { email, name, password, profile } = req.body;
+        const profile=req.file.path 
+        if(!profile){
+            profile="http://www.defineinternational.com/wp-content/uploads/2014/06/dummy-profile.png"
+        }
+        const { email, name, password} = req.body;
         if (email === "" || name === "" || password === "" || profile === "") {
             return res.send({ message: "some input fields are empty" });
         }

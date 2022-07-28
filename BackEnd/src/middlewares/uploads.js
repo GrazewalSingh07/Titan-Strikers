@@ -3,7 +3,7 @@ const removeUploadedFiles = require("multer/lib/remove-uploaded-files");
 const path=require("path")
 const storage = multer.diskStorage({
     destination: function (req, file, callback) {
-      callback(null, path.join(__dirname,"../uploadedPics"))
+      callback(null, path.join(__dirname,"../profilePictures"))
     },
     filename: function (req, file, callback) {
       const uniquePreffix= Date.now()  
