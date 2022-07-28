@@ -12,7 +12,7 @@ import {Routes,Route} from "react-router-dom"
 import { Cart } from "./Pages/Cart"
 import { Signin } from "./Pages/Signin"
 import { Signup } from "./Pages/Signup"
-function App() {
+ 
  
  
 
@@ -34,7 +34,7 @@ function App() {
         <Route path="/cart" element={<Cart/>}/>
        </Routes>
  
-
+    </>
   )
 }
 
