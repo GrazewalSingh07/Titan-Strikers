@@ -6,16 +6,16 @@ import {Box, Img, Text} from "@chakra-ui/react"
 
 import {Link} from "react-router-dom"
 const Courses = () => {
-    const data=useSelector((state)=>state.data)
+    const data=useSelector((state)=>state.AppReducer.data)
     const dispatch=useDispatch()
     useEffect(()=>{
-dispatch(getdata())
+        dispatch(getdata())
     },[])
 
     console.log(data)
   return (
     <Box  w="90%"  margin="auto" gap="40px" display="grid" gridTemplateColumns="repeat(3,1fr)" marginTop="40px">
-        {data.map((ele)=>{
+        {data?.map((ele)=>{
             return <Link to={`/courses/${ele._id}`} key={ele._id}> <Box key={ele._id}>
                 
                 <Img w="100%" src={ele.photoUrl}/>

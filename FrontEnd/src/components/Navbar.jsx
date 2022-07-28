@@ -10,7 +10,7 @@ const Navbar = () => {
     </Box>
     <Box display="grid" gridTemplateColumns="repeat(4,1fr)" marginTop="30px">
     <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
+        <Link to="/signin">Login</Link>
         <Link to="/signup">Sign Up</Link>
         <Link to="/courses">Courses</Link>
         
