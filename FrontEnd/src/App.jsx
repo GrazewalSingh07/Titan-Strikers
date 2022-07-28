@@ -11,14 +11,6 @@ import { Cart } from "./Pages/Cart"
 import { Signin } from "./Pages/Signin"
 
 
- 
-
- 
- 
-
-
- 
-
 function App() {
 
   return (
