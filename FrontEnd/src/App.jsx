@@ -4,10 +4,10 @@ function App() {
  
 
   return (
-    <div >
-       
+    <Box>
+  
 
-    </div>
+    </Box>
   )
 }
 
