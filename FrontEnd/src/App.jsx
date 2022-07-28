@@ -9,7 +9,15 @@ import ProductDetail from "./Pages/ProductDetail"
 
 import { Cart } from "./Pages/Cart"
 import { Signin } from "./Pages/Signin"
-import { Signup } from "./Pages/Signup"
+
+
+ 
+
+ 
+ 
+
+
+ 
 
 function App() {
 
@@ -18,18 +26,16 @@ function App() {
     <Navbar/>
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/login" element={<Login/>}/>
+     
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/courses" element={<Courses/>}/>
       <Route path="/courses/:id" element={<ProductDetail/>}/>
-      <Route path="/signin" element={<Signin/>}/>
+      
+        <Route path="/signin" element={<Signin/>}/>
         <Route path="/cart" element={<Cart/>}/>
-    </Routes>
-    </>
-
-     
-
-
+       </Routes>
+ 
+</>
   )
 }
 
