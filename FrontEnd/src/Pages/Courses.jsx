@@ -14,7 +14,7 @@ dispatch(getdata())
 
     console.log(data)
   return (
-    <Box  w="90%"  margin="auto" gap="20px" display="grid" gridTemplateColumns="repeat(3,1fr)" marginTop="40px">
+    <Box  w="90%"  margin="auto" gap="40px" display="grid" gridTemplateColumns="repeat(3,1fr)" marginTop="40px">
         {data.map((ele)=>{
             return <Link to={`/courses/${ele._id}`} key={ele._id}> <Box key={ele._id}>
                 

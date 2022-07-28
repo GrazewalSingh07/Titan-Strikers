@@ -38,7 +38,7 @@ const ProductDetail = () => {
     return (
       <Box width="80%" margin="auto" key={currProduct.id} display="grid" gridTemplateColumns="repeat(2,1fr)">
         <Box>
-        <Img src={currProduct.image_link}/>
+        <Img src={currProduct.photoUrl}/>
         </Box>
         <Box marginTop="50px">
         <h3>{currProduct.name}</h3>
