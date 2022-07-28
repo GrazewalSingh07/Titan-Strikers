@@ -3,14 +3,14 @@ import {Routes,Route} from "react-router-dom"
 function App() {
  
 
-  return (
-    <div >
+  return ( <Box>
+
        <Routes>
         <Route path="/" ></Route>
 
        </Routes>
 
-    </div>
+    </Box>
   )
 }
 
