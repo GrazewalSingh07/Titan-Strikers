@@ -9,7 +9,7 @@ export const Mycourse=()=>{
         dispatch(getpurchase())
     },[])
     const handleClick = () => {
-      window.open("https://discussion-room-titan.netlify.app/?roomUrl=https%3A%2F%2Ftitan0.daily.co%2FsL7ZoRSg2xI7w4cp5pXU", "_blank");
+      window.open("https://discussion-room-titan.netlify.app/", "_blank");
     }
     
     return <Container maxW="container.xl">
