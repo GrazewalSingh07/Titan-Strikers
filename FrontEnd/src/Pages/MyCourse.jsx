@@ -8,6 +8,9 @@ export const Mycourse=()=>{
     useEffect(()=>{
         dispatch(getpurchase())
     },[])
+    const handleClick = () => {
+      window.open("https://discussion-room-titan.netlify.app/?roomUrl=https%3A%2F%2Ftitan0.daily.co%2FsL7ZoRSg2xI7w4cp5pXU", "_blank");
+    }
     
     return <Container maxW="container.xl">
         <Heading p={5}>My Courses</Heading>
@@ -26,7 +29,7 @@ export const Mycourse=()=>{
           </Container >
           
           <Container>
-            <Button colorScheme="green">Ask doubts in live sessions</Button>
+            <Button onClick={handleClick} colorScheme="green">Ask doubts in live sessions</Button>
           </Container>
         </HStack>
       
