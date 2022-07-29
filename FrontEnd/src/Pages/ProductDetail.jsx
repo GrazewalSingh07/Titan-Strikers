@@ -3,7 +3,8 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getdata } from '../Redux/App/action'
-import {Box, Img, Button} from "@chakra-ui/react"
+import {Box, Image,HStack,Text,Heading,Button,Container} from "@chakra-ui/react"
+import { addtocart } from '../Redux/cart/action'
 const ProductDetail = () => {
     const[count,setCount]=useState(0)
     const {id}=useParams()
@@ -26,31 +27,46 @@ const ProductDetail = () => {
     temp && setcurrProduct(temp)
   }
     },[ProductData,id])
-  
- 
-    console.log(currProduct)
+   
   
   
-    const handleBag=(id)=>{
-      
+    const handleBag=()=>{
+      dispatch(addtocart({courseId:id})).then(()=>{
+        alert("added to cart")
+      })
     }
     return (
-      <Box width="80%" margin="auto" key={currProduct.id} display="grid" gridTemplateColumns="repeat(2,1fr)">
-        <Box>
-        <Img src={currProduct.photoUrl}/>
-        </Box>
-        <Box marginTop="50px">
-        <h3>{currProduct.name}</h3>
-        <h3>{currProduct.price}</h3>
-        <Button onClick={()=>handleBag(id)} width="70%"color="white" bg="blue.700">ADD TO CART</Button>
-  
-  <Button onClick={ ()=>setCount(count+1)}>+</Button>
-  {count}
-  <Button onClick={ ()=>setCount(count-1)}>-</Button>
-  </Box>
-  
+      <Container maxW="container.2xl" mt={10}>
+        <Container boxShadow= "rgba(0, 0, 0, 0.24) 0px 3px 8px"  maxW="container.xl"margin="auto" key={currProduct?.id} >
+        <HStack spacing="auto" p={10}>
+          <Container>
+            <Image src={currProduct?.photoUrl}/>
+          </Container>
+            <Container >
+                <Heading p={2} width="100%">{currProduct?.name}</Heading>
+                <Heading p={2} fontSize="large">Subject : {currProduct?.subject}</Heading>
+                <Heading p={2} fontSize="large">Price : $ {currProduct?.price}</Heading>
+
+              <Container pt={5} width="100%">
+                  <Text  p={2}  >Course Duration : {currProduct?.duration}</Text>
+                  <Text p={2}>Language : {currProduct?.langaage}</Text>
+                  <Text p={2}>Level : {currProduct?.level}</Text>
+
+              </Container>
+             <Container pt={10}>
+                <Button onClick={handleBag} colorScheme="green" width="100%">Add to cart</Button>
+                  <HStack pt={2} >
+                    <Text>Have doubts?</Text>
+                    <Button  colorScheme="red" width="60%">Ask now on live call</Button>
+                  </HStack> 
+             </Container>
+            
+          </Container>
+
+        </HStack>
       
-            </Box>
+      </Container>
+      </Container>
     )
   }
   

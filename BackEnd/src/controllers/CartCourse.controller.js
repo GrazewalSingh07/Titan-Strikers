@@ -9,7 +9,7 @@ const router= express.Router()
 router.get("/",authenticate,async(req,res)=>{
     try {
     
-      let cartcourses= await CartCourse.find({userId:req.user._id}).lean().exec()
+      let cartcourses= await CartCourse.find({userId:req.user._id}).populate("courseId").lean().exec()
         
         return res.status(200).send(cartcourses)
     } catch (error) {
@@ -17,6 +17,7 @@ router.get("/",authenticate,async(req,res)=>{
     }
 })
 router.post("/",authenticate,async(req,res)=>{
+  
     try {
      
         await CartCourse.create({
@@ -31,8 +32,18 @@ router.post("/",authenticate,async(req,res)=>{
 })
 router.delete("/:id",authenticate,async(req,res)=>{
     try {
-    
-        await CartCourse.findByIdAndDelete({_id:req.params.id,userId:req.user._id})
+     
+        await CartCourse.findByIdAndDelete({_id:req.params.id})
+        
+        return res.status(200).send("deleteed from cart")
+    } catch (error) {
+        return res.status(401).send(error.message)
+    }
+})
+router.delete("/all",authenticate,async(req,res)=>{
+    try {
+     
+        await CartCourse.findByIdAndDelete({_id:req.params.id})
         
         return res.status(200).send("deleteed from cart")
     } catch (error) {
