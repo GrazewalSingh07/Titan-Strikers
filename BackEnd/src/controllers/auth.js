@@ -8,18 +8,20 @@ const authRouter = Router();
 
 authRouter.post("/signup",Single("profile"), async (req, res) => {
     try {
-        let profile=req?.profile?.file
-        if(!profile){
-            profile="http://www.defineinternational.com/wp-content/uploads/2014/06/dummy-profile.png"
-        }
+     
+      
+        // if(!profile){
+        //     profile="http://www.defineinternational.com/wp-content/uploads/2014/06/dummy-profile.png"
+        // }
+        
         const { email, name, password} = req.body;
-        if (email === "" || name === "" || password === "" || profile === "") {
+        if (email === "" || name === "" || password === "" ) {
             return res.send({ message: "some input fields are empty" });
         }
 
         const hash = crypto.pbkdf2Sync(password, "TITAN", 10, 30, "sha256").toString("hex");
 
-        const data = UserModel({ email, name, "password": hash, profile });
+        const data = await UserModel.create({ email, name, "password": hash, "profile":req.file.path });
         data.save();
 
         return res.status(201).send({ message: "user created successfully" });
@@ -46,7 +48,7 @@ authRouter.post("/signin", async (req, res) => {
 
         const token = jwt.sign(user, "TITAN");
 
-        return res.status(200).send({ message: "user signed in successfully", token });
+        return res.status(200).send({ message: "user signed in successfully", token ,user});
     } catch (e) {
         return res.status(401).send({ message: e.message});
     }

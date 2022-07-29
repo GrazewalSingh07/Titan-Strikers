@@ -4,7 +4,8 @@ import {FcSearch} from "react-icons/fc"
 import { useSelector,useDispatch } from 'react-redux'
 import {Box, Image,Container,HStack,Input,Button,InputGroup,InputLeftElement} from "@chakra-ui/react"
 import { Logout } from '../Redux/Auth/action'
-import { Mycourse } from '../Pages/MyCourse'
+import { loadData } from '../utils/localStorage'
+ 
 const Navbar = () => {
  
   const dispatch=useDispatch()
@@ -41,7 +42,7 @@ const Navbar = () => {
             localStorage.clear()
             Logout(dispatch)
           }}>Log out</Button>:<Link to="/signin">Login</Link> } 
-            
+          <Image src={loadData("profile")}/>
         </HStack>
       </Container>
     </HStack>

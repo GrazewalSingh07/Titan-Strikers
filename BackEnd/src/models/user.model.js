@@ -1,12 +1,4 @@
-
-// Schema
-// {
-// "email"
-// 'name'
-// "password"
-// "profile"
-
-// }
+ 
 
 const { Schema, model } = require("mongoose");
 

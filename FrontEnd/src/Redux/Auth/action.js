@@ -10,7 +10,7 @@ export const login = (data) => (dispatch) => {
     .post("http://localhost:4000/auth/signin", data)
     .then((r) =>{
       saveData(r.data.token)
-      
+      localStorage.setItem("profile",JSON.stringify(r.data.user.profile))
        
        dispatch({ type: types.LOGIN_SUCCESS, payload: r.data })
       })

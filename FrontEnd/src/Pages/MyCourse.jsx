@@ -15,21 +15,26 @@ export const Mycourse=()=>{
     return <Container maxW="container.xl">
         <Heading p={5}>My Courses</Heading>
         {data?.map((el)=>{
-          return  <Container maxW="container.2xl" mt={5} >
+          return  <Container cursor="pointer" maxW="container.2xl" mt={5} >
             <Container  boxShadow= "rgba(0, 0, 0, 0.24) 0px 3px 8px"  maxW="container.xl" margin="auto" key={el.courseId._id} >
-        <HStack spacing="auto" p={10}>
-          <Container>
-            <Image width="30%" src={el.courseId.photoUrl}/>
-          </Container>
-            <Container >
+        <HStack spacing={10} p={10}>
+              <Container width="30%"  >
+                <Image width="100%" src={el.courseId.photoUrl}/>
+              </Container>
+         
+            <Container width="100%" >
                 <Heading p={2} fontSize="larger"width="100%">{el.courseId.name}</Heading>
-                <Heading p={2} fontSize="large">Subject : {el.courseId.subject}</Heading>
-               
+                <Heading color="tomato" p={2} fontSize="large">Subject : {el.courseId.subject}</Heading>
+                
             
           </Container >
           
           <Container>
-            <Button onClick={handleClick} colorScheme="green">Ask doubts in live sessions</Button>
+           <HStack>
+            <Button onClick={handleClick} colorScheme="blue">Ask doubts ( 8PM - 9PM )</Button>
+              <Button onClick={handleClick} colorScheme="green">Live sessions( 3PM - 5PM )</Button>
+           </HStack>
+
           </Container>
         </HStack>
       
