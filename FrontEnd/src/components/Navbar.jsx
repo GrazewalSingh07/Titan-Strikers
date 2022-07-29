@@ -4,7 +4,8 @@ import {Box, Img} from "@chakra-ui/react"
 const Navbar = () => {
   return (
     <>
-    <Box bg="green.100" color="green.800" h="95px" fontSize="20px" marginTop="20px" display="grid" gridTemplateColumns="40% 60%">
+    <marquee>WELCOME  |  SELECT YOUR COURSES</marquee>
+    <Box bg="green.100" color="green.800" h="80px" fontSize="20px" marginTop="20px" display="grid" gridTemplateColumns="40% 60%">
     <Box>
 <Img w="15%" src="https://png.pngtree.com/png-clipart/20220530/original/pngtree-back-to-school-circle-study-education-concept-vector-background-poster-png-image_7775099.png"/>
     </Box>
