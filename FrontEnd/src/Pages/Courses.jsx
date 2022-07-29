@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useSelector,useDispatch} from "react-redux"
 import { getdata } from '../Redux/App/action'
 
@@ -7,11 +7,13 @@ import {Box, Img, Text,Container,VStack,Stack} from "@chakra-ui/react"
 import {Link} from "react-router-dom"
 const Courses = () => {
     const data=useSelector((state)=>state.AppReducer.data)
+    
+    
     const dispatch=useDispatch()
     useEffect(()=>{
         dispatch(getdata())
     },[])
- 
+  
   return (
     <Container maxW="container.xl" margin="auto" gap={10} display="grid" gridTemplateColumns="repeat(3,1fr)" marginTop={10}>
         {data?.map((ele)=>{

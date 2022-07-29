@@ -31,7 +31,9 @@ const ProductDetail = () => {
   
   
     const handleBag=()=>{
-      dispatch(addtocart({courseId:id}))
+      dispatch(addtocart({courseId:id})).then(()=>{
+        alert("added to cart")
+      })
     }
     return (
       <Container maxW="container.2xl" mt={10}>

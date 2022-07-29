@@ -15,7 +15,7 @@ const RequiredAuth = ({ children }) => {
     
     return  <>
 
-       <Navigate to="/" state={{ from: location }} replace/>
+       <Navigate to="/signin" state={{ from: location }} replace/>
         {alert("Please Login or Sign up") }
        
        </>
