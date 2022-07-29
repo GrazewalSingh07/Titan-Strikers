@@ -1,5 +1,5 @@
 const multer=require("multer");
-const removeUploadedFiles = require("multer/lib/remove-uploaded-files");
+ 
 const path=require("path")
 const storage = multer.diskStorage({
     destination: function (req, file, callback) {
@@ -42,6 +42,7 @@ const Single=(key)=>{
        
         return res.status(501).send({messagenoramal:err.message})
       }
+      // console.log(req.file.path)
       return next();
    })
   }
