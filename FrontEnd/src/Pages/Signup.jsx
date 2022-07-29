@@ -1,5 +1,8 @@
+
+
  
 import { Container,Input,Button,Stack,Heading,Image, HStack} from "@chakra-ui/react"
+ 
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
@@ -55,3 +58,4 @@ export const Signup=()=>{
      
     </Container>
 }
+

@@ -12,6 +12,9 @@ const Navbar = () => {
 
   return (
     <>
+ <Container maxW="container.2xl"> 
+  <marquee>WELCOME  |  SELECT YOUR COURSES</marquee>
+
     <Container  boxShadow= "rgba(0, 0, 0, 0.24) 0px 3px 8px"   maxW="container.2xl" bg="green.100" color="green.800"  fontSize="20px" margin="auto" >
     <HStack width="90%" spacing="auto">
       <Container width="container.sm" height="10vh">
@@ -43,6 +46,7 @@ const Navbar = () => {
       </Container>
     </HStack>
     </Container>
+  </Container>
 
     </>
   )

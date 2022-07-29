@@ -1,14 +1,12 @@
- 
+
 import Navbar from "./components/Navbar"
- 
+import {Routes,Route} from "react-router-dom"
 import Home from "./Pages/Home"
- 
- 
+
 import Courses from "./Pages/Courses"
 import ProductDetail from "./Pages/ProductDetail"
- 
- 
-import {Routes,Route} from "react-router-dom"
+
+
 import { Cart } from "./Pages/Cart"
 import { Signin } from "./Pages/Signin"
 import { Signup } from "./Pages/Signup"
@@ -20,7 +18,6 @@ import { PaymentPage } from "./Pages/PaymenPgae"
  
 
 
- 
 function App() {
 
   return (
