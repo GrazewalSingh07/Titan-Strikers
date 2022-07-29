@@ -19,13 +19,15 @@ export const getcart=()=>(dispatch,state)=>{
 }
 
 export const addtocart=(data)=>(dispatch,state)=>{
+     
     dispatch({type:types.POST_CART_REQUEST})
-    return axios.post("http://localhost:4000/cart",{
+    return axios.post("http://localhost:4000/cart",data,{
         headers: {
             'Authorization': 'Bearer ' + state().AuthReducer.token
           },
         data
     }).then((res)=>{
+        
        dispatch(getcart())
     }).catch((err)=>{
         dispatch({type:types.POST_CART_FAILURE})
@@ -33,12 +35,14 @@ export const addtocart=(data)=>(dispatch,state)=>{
 }
 
 export const removefromcart=(id)=>(dispatch,state)=>{
-    return axios.delete(`http://localhost:4000/cart${id}`,{
+     
+    return axios.delete(`http://localhost:4000/cart/${id}`,{
         headers: {
             'Authorization': 'Bearer ' + state().AuthReducer.token
           },
         
     }).then((res)=>{
+        console.log(res)
         dispatch(getcart())
     }).catch((err)=>{
         console.log(err)
