@@ -1,4 +1,4 @@
-import { Box, Container, Img,Heading,Button } from '@chakra-ui/react'
+import { Box, Container,Text, Img,Heading,Button, VStack } from '@chakra-ui/react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,15 +7,28 @@ const Home = () => {
   const handlenav=()=>{
 navigate("/signup")
   }
+  const handleClick = () => {
+    window.open("https://discussion-room-titan.netlify.app/", "_blank");
+  }
   return (
-    <Container m="auto" maxW="container.2xl" backgroundSize="cover" backgroundRepeat="no-repeat" backgroundImage="https://images.unsplash.com/photo-1601807576163-587225545555?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80">
+   <Container  p={10} m="auto" maxW="container.2xl">
+     <Container  m="auto" maxW="container.2xl" backgroundSize="contain" backgroundRepeat="no-repeat" backgroundImage="https://img.freepik.com/free-vector/education-horizontal-typography-banner-set-with-learning-knowledge-symbols-flat-illustration_1284-29493.jpg?w=1380&t=st=1659069417~exp=1659070017~hmac=00d8962ffac6884a29f9ac25cb500a041f62179d3bdd8697b6de72462786c6a5">
        
-      <Container margin="auto" height="100vh"  width="100%">
-        
-<Button onClick={handlenav}>Sign Up</Button>
-      </Container>
-      
-</Container>
+       <Container pt={10} height="100vh"  width="100%">
+               
+               <VStack spacing={10}>
+                  <Button  width="100%" onClick={handlenav}>Get Started now</Button>
+           
+            
+                  
+                  <Button colorScheme="pink" width="100%" onClick={handleClick}>Have Doubts? Join live session</Button>
+                  </VStack>
+           
+         </Container>
+         
+       
+ </Container>
+   </Container>
   )
 }
 
