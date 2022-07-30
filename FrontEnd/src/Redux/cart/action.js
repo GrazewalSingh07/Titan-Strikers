@@ -6,7 +6,7 @@ import axios from "axios"
 
 export const getcart=()=>(dispatch,state)=>{
     dispatch({type:types.GET_CART_REQUEST})
-    return axios.get("http://localhost:4000/cart",{
+    return axios.get("https://titanstrikershackathon.herokuapp.com/cart",{
         headers: {
             'Authorization': 'Bearer ' + state().AuthReducer.token
           }
@@ -21,7 +21,7 @@ export const getcart=()=>(dispatch,state)=>{
 export const addtocart=(data)=>(dispatch,state)=>{
      
     dispatch({type:types.POST_CART_REQUEST})
-    return axios.post("http://localhost:4000/cart",data,{
+    return axios.post("https://titanstrikershackathon.herokuapp.com/cart",data,{
         headers: {
             'Authorization': 'Bearer ' + state().AuthReducer.token
           },
@@ -36,7 +36,7 @@ export const addtocart=(data)=>(dispatch,state)=>{
 
 export const removefromcart=(id)=>(dispatch,state)=>{
      
-    return axios.delete(`http://localhost:4000/cart/${id}`,{
+    return axios.delete(`https://titanstrikershackathon.herokuapp.com/cart/${id}`,{
         headers: {
             'Authorization': 'Bearer ' + state().AuthReducer.token
           },

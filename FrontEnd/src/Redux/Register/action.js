@@ -21,7 +21,7 @@ export const register=(data)=>(dispatch)=>{
     dispatch(registerrequest())
   return  axios({
         method: "post",
-        url: "http://localhost:4000/auth/signup",
+        url: "https://titanstrikershackathon.herokuapp.com/auth/signup",
         data,
         headers: { "Content-Type": "multipart/form-data" },
       }).then((res)=>{

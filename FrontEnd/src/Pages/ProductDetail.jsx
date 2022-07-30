@@ -35,6 +35,9 @@ const ProductDetail = () => {
         alert("added to cart")
       })
     }
+    const handleClick = () => {
+      window.open("https://discussion-room-titan.netlify.app/", "_blank");
+    }
     return (
       <Container maxW="container.2xl" mt={10}>
         <Container boxShadow= "rgba(0, 0, 0, 0.24) 0px 3px 8px"  maxW="container.xl"margin="auto" key={currProduct?.id} >
@@ -57,7 +60,7 @@ const ProductDetail = () => {
                 <Button onClick={handleBag} colorScheme="green" width="100%">Add to cart</Button>
                   <HStack pt={2} >
                     <Text>Have doubts?</Text>
-                    <Button  colorScheme="red" width="60%">Ask now on live call</Button>
+                    <Button onClick={handleClick}  colorScheme="red" width="60%">Ask now on live call</Button>
                   </HStack> 
              </Container>
             
