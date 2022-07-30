@@ -42,7 +42,7 @@ const Navbar = () => {
             localStorage.clear()
             Logout(dispatch)
           }}>Log out</Button>:<Link to="/signin">Login</Link> } 
-          <Image src={loadData("profile")}/>
+        {isAuth?<Image width={10} borderRadius="50%" src="http://www.defineinternational.com/wp-content/uploads/2014/06/dummy-profile.png"/>:null}  
         </HStack>
       </Container>
     </HStack>

@@ -20,7 +20,7 @@ export const getdatafailure=()=>{
 }
 export const getdata=()=>(dispatch)=>{
     dispatch(getdatarequest())
-    return axios.get("http://localhost:4000/course").then((res)=>{
+    return axios.get("https://titanstrikershackathon.herokuapp.com/course").then((res)=>{
         dispatch(getdatasuccess(res.data))
     }).catch((err)=>{
         dispatch(getdatafailure())

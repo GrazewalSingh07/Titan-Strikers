@@ -7,7 +7,7 @@ import * as types from "./actiontypes"
 export const getpurchase=()=>(dispatch,state)=>{
      
     dispatch({type:types.GET_PURCHASE_REQUEST})
-    return axios.get("http://localhost:4000/my-courses",{
+    return axios.get("https://titanstrikershackathon.herokuapp.com/my-courses",{
         headers: {
             'Authorization': 'Bearer ' + state().AuthReducer.token
           },
@@ -30,7 +30,7 @@ export const postpurchase=()=>(dispatch,state)=>{
      })
      
     dispatch({type:types.PURCHASE_REQUEST})
-    return axios.post("http://localhost:4000/my-courses",x,{
+    return axios.post("https://titanstrikershackathon.herokuapp.com/my-courses",x,{
         headers: {
             'Authorization': 'Bearer ' + state().AuthReducer.token
           },
