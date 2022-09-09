@@ -3,7 +3,7 @@
  frontend deplyed link -->https://titan-strikers.netlify.app/
  
  WebRTC deployed link-->https://discussion-room-titan.netlify.app/
- ( we have used this link in our application to added live calling functionality)
+ ( we have used this link in our application to achieve live calling functionality)
  
  Team memebers
  -- Grazewal Singh
